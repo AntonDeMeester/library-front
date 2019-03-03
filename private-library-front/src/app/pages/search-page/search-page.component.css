@@ -1,0 +1,20 @@
+.flex-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.horizontal-box {
+    flex-direction: row;
+    justify-content: center;
+}
+
+.search-field {
+    border-radius: 10px;
+    width: 40%;
+    min-width: 200px;
+}
+
+.search-results-table {
+    width: 80%;
+    padding: 16px;
+}

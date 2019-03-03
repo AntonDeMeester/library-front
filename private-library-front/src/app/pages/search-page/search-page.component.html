@@ -1,0 +1,38 @@
+<div class="flex-box">
+  <div class="horizontal-box">
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-label>Search for book</mat-label>
+      <input matInput placeholder="Search">
+    </mat-form-field>
+
+  <div class="horizontal-box">
+    <table mat-table [dataSource]="dataSource" class="search-results-table">
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+    
+      <!-- Book name Column -->
+      <ng-container matColumnDef="book_name">
+        <th mat-header-cell *matHeaderCellDef> Book name </th>
+        <td mat-cell *matCellDef="let element"> {{element.book_name}} </td>
+      </ng-container>
+    
+      <!-- Authors Column -->
+      <ng-container matColumnDef="authors">
+        <th mat-header-cell *matHeaderCellDef> Authors </th>
+        <td mat-cell *matCellDef="let element"> {{element.authors}} </td>
+      </ng-container>
+    
+      <!-- Genres Column -->
+      <ng-container matColumnDef="genres">
+        <th mat-header-cell *matHeaderCellDef> Genres </th>
+        <td mat-cell *matCellDef="let element"> {{element.genres}} </td>
+      </ng-container>
+    
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  
+</div>
