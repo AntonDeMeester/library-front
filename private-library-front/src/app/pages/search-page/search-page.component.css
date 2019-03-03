@@ -4,7 +4,7 @@
 }
 
 .horizontal-box {
-    flex-direction: row;
+    display: flex;
     justify-content: center;
 }
 
