@@ -5,7 +5,7 @@ jobs:
     build:
         working_directory: ~/project
         docker:
-            - image: circleci/node:10.13
+            - image: circleci/chakracore-10.13
         steps:
             # Checkout the code from the branch into the working_directory
             - checkout
@@ -40,7 +40,7 @@ jobs:
             - run:
                 name: Building
                 command: |
-                    ng build --aot=true --prod 
+                    npm run build
             # Cache the dist folder for the deploy job
             - save_cache:
                 key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
@@ -50,7 +50,7 @@ jobs:
     deploy:
         working_directory: ~/project
         docker:
-            - image: circleci/node:6.10-browsers
+            - image: circleci/node:chakracore-10.13
         steps:
             # Log the current branch
             - run:
