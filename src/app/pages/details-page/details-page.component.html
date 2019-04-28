@@ -1,21 +1,20 @@
 <div class='detailsCenterContainer'>
   <div class="detailsContainer">
-    <div class='headerContainer'>
-      <div class="titleText">The Book of Ages</div>
-      <div class="authorsText">By Anton De Meester</div>
-    </div>
+    <div class="mat-display-3 titleText">{{book.title}}</div>
+    <div class="mat-subheading-2 subtitleText">{{book.subtitle}}</div>
+    <div class="mat-headline authorsText">{{book.authors[0].name}}</div>
     <div class='bigInfoContainer'>
       <div class='infoContainer'>
-        <div class="subtitleText">The best book in the world</div>
-        <div class="pagesText">500p</div>
+        <div class="mat-body descriptionText">{{book.description}}</div>
+        <div class="mat-body pagesText">{{book.page_count}}</div>
         <div class="genreContainer">
-          <div class="genreText">Non-fiction</div>
-          <div class="genreText">Business</div>
+          <div class="mat-body-2 genreText">Non-fiction</div>
+          <div class="mat-body-2 genreText">Business</div>
         </div>
       </div>
       <div class="photoContainer">
         <img src="https://marketplace.canva.com/MACXC0twKgo/1/0/thumbnail_large/canva-green-and-pink-science-fiction-book-cover-MACXC0twKgo.jpg"/>
-        <div class="photosubText">Hello</div>
+        <div class="mat-caption photosubText">Hello</div>
       </div>
     </div> 
   </div>

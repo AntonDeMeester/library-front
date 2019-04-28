@@ -11,31 +11,88 @@
     justify-content: center;
 }
 
+.bigInfoContainer {
+    flex: 3;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+@media only screen and (max-width: 640px) {
+    .bigInfoContainer {
+        flex-direction: column;
+    }
+}
+
+.infoContainer {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    min-width: 280px;
+    padding-right: 16px
+}
+
+@media only screen and (max-width: 640px) {
+    .infoContainer {
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
 .headerContainer {
     display: flex;
     flex-direction: column;
 }
 
 .titleText {
-    text-align: center;
+    text-align: start;
+    margin-bottom: 32px;
 }
 
-.bigInfoContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.authorsText {
+    text-align: start;
+    margin-bottom: 16px;
 }
 
-.infoContainer {
-    display: flex;
-    flex-direction: column;
+.descriptionText {
+    width: 100%;
+    margin-bottom: 16px;
 }
 
 .genreContainer {
     display: flex;
     flex-direction: row;
+    font-weight: normal;
+    margin-top: 16px;
+}
+
+.genreText {
+    margin-left: 8px;
+    margin-right: 8px;
 }
 
 .photoContainer {
-    flex-grow: 0;
+    flex: 1;
+    max-height: 300px;
+    min-height: 200px;
+    max-width: 300px;
+    min-width: 200px;
+    text-align: center;
+    width: 30%;
+    padding: 16px;
+}
+
+@media only screen and (max-width: 640px) {
+    .photoContainer {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 32px;
+    }
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }

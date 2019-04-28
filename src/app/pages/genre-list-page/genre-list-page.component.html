@@ -1,0 +1,15 @@
+<div class='genre-container'>
+  <div class='scrollable-container' #genreScrollContainer>
+    <app-genre-card 
+          *ngFor='let genre of genres' 
+          [genre]='genre'
+          (click)='clickGenre(genre)'></app-genre-card>
+  </div>
+
+  <div class='left-button-container scroll-button-container'>
+    <button class='left-button scroll-button' (click)=scrollLeft($event)></button>
+  </div>
+  <div class='right-button-container scroll-button-container'>
+      <button class='right-button scroll-button' (click)=scrollRight($event)></button>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<p>
+  upload-book works!
+</p>
+<input #imageInput
+         type="file"
+         accept="image/*"
+         (change)='uploadFile($event)'>
+<button mat-button #submitImage (click)='registerBook($event)'>Upload</button>

@@ -1,0 +1,22 @@
+.genreCard {
+    width: 250px;
+    height: 350px;
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+    margin: 16px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.mat-card-footer {
+    align: end;
+}
+
+.mat-card-lg-image {
+    object-fit: contain;
+    width: 150px;
+    height: 200px;
+}

@@ -1,0 +1,11 @@
+.scrollable-container {
+    display: flex;
+    direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /*To let it go over for any mobile users */
+}
+
+.scrollable-container::-webkit-scrollbar {
+    display: none;
+}
