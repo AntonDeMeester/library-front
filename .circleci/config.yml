@@ -1,9 +1,5 @@
 version: 2
 
-# List of jobs
-jobs:
-    # The build job
-   version: 2
 jobs:
     # The build job
     build:
