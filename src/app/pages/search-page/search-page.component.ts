@@ -34,7 +34,7 @@ export class SearchPageComponent implements OnInit {
   }
 
   getBooks(): void {
-    this.booksService.getBooks().subscribe(books => this.dataSource.data = books);
+    this.booksService.getBooks("").subscribe(books => this.dataSource.data = books);
     this.dataSource.connect();
   }
 
