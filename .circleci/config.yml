@@ -74,6 +74,10 @@ jobs:
                 name: Deploy to S3
                 command: |
                     aws --region eu-west-1 s3 sync dist s3://transvaal.library.com/ --delete
+            - run:
+                name: Invalidate CloudFront
+                command: |
+                    aws cloudfront create-invalidation --distribution-id E39U5HVNRFRUCR --paths ‘/*’
             
 workflows:
     version: 2
