@@ -73,7 +73,7 @@ jobs:
             - run:
                 name: Deploy to S3
                 command: |
-                    aws --region eu-west-1 s3 sync dist s3://transvaal.library.com/ --delete
+                    aws --region eu-west-1 s3 sync dist/private-library-front s3://transvaal.library.com/ --delete
             - run:
                 name: Invalidate CloudFront
                 command: |
