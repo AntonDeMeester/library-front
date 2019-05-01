@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { BooksService } from '../../services/books.service';
 import { Genre } from '../../models/genre.model';
@@ -12,9 +13,11 @@ export class GenreListPageComponent implements OnInit {
 
   @ViewChild('genreScrollContainer', { read: ElementRef }) public genreScroll: ElementRef<any>;
 
-  public genres: Genre[]
+  public genres: Genre[];
 
-  constructor(private bookService: BooksService) { }
+  constructor(
+      private bookService: BooksService
+    ) { }
 
   ngOnInit() {
     this.getGenres();
@@ -36,10 +39,6 @@ export class GenreListPageComponent implements OnInit {
     this.genreScroll.nativeElement.scrollTo(
       { left: (this.genreScroll.nativeElement.scrollLeft + 300), behavior: 'smooth'}
     )
-  }
-
-  clickGenre(genre: Genre) {
-    console.log("You clicked on genre " + genre.id + ", named " + genre.genre + ".")
   }
 
 }

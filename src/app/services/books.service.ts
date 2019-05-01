@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Subject } from 'rxjs/index';
-import { catchError, map, tap } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 import { CookieService } from 'ngx-cookie-service';
 
 import { Book } from '../models/book.model';
 import { Genre } from '../models/genre.model';
-import { TokenError } from '@angular/compiler/src/ml_parser/lexer';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -47,14 +46,20 @@ export class BooksService {
     localStorage.setItem('token', token);
   }
 
-  getBooks(): Observable<Book[]> {
-    return this.http.get<Book[]>(this.booksEndPoint)
-      .pipe(
-        tap(books => {
-          console.log(books);
-        }),
-      )
-  }
+    getBooks(genreFilter): Observable<Book[]> {
+        console.log("Getting books: genre filter is: " + genreFilter);
+        let params = new HttpParams()
+        if(genreFilter){
+            console.log("Setting genre filter");
+            params = params.append("genre", genreFilter)
+        }
+        return this.http.get<Book[]>(this.booksEndPoint, { params: params })
+        .pipe(
+            tap(books => {
+            console.log(books);
+            }),
+        )
+    }
 
   getBookById(id): Observable<Book> {
     return this.http.get<Book>(this.booksEndPoint + id)

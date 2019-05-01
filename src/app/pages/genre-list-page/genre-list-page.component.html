@@ -2,8 +2,7 @@
   <div class='scrollable-container' #genreScrollContainer>
     <app-genre-card 
           *ngFor='let genre of genres' 
-          [genre]='genre'
-          (click)='clickGenre(genre)'></app-genre-card>
+          [genre]='genre'></app-genre-card>
   </div>
 
   <div class='left-button-container scroll-button-container'>

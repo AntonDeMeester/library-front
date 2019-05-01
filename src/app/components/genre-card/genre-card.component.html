@@ -1,4 +1,5 @@
-<mat-card class='genreCard'>
+<mat-card class='genreCard' 
+        (click)='goToGenre(event)'>
   <mat-card-title>{{genre.genre}}</mat-card-title>
   <img mat-card-lg-image src='assets/horror.png' />
   <mat-card-footer>{{genre.book_count}} books</mat-card-footer>

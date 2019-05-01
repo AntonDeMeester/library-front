@@ -1,15 +1,14 @@
-<div class='scrollable-container'>
-  <app-book-card></app-book-card>
-  <app-book-card></app-book-card>
-  <app-book-card></app-book-card>
-  <app-book-card></app-book-card>
-  <app-book-card></app-book-card>
-  <app-book-card></app-book-card>
-  <app-book-card></app-book-card>
-  <app-book-card></app-book-card>
-  <app-book-card></app-book-card>
-  <app-book-card></app-book-card>
-  <app-book-card></app-book-card>
-  <app-book-card></app-book-card>
-  <app-book-card></app-book-card>
+<div class='book-container'>
+    <div class='scrollable-container' #bookScrollContainer >
+        <app-book-card 
+            *ngFor='let book of books' 
+            [book]='book'></app-book-card>
+    </div>
+    
+    <div class='left-button-container scroll-button-container'>
+        <button class='left-button scroll-button' (click)=scrollLeft($event)></button>
+    </div>
+    <div class='right-button-container scroll-button-container'>
+        <button class='right-button scroll-button' (click)=scrollRight($event)></button>
+    </div>
 </div>

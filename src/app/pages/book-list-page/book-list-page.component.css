@@ -1,3 +1,7 @@
+.book-container {
+    position: relative;
+}
+
 .scrollable-container {
     display: flex;
     direction: row;
@@ -8,4 +12,41 @@
 
 .scrollable-container::-webkit-scrollbar {
     display: none;
+}
+
+.scroll-button-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    display: flex;
+    direction: row;
+    align-items: center;
+}
+
+.left-button-container {
+    left: 0;
+}
+
+.right-button-container {
+    right: 0;
+}
+
+.scroll-button {
+    width: 50px;
+    height: 50px;
+    background-size: 50px 50px;
+}
+
+.left-button {
+    background-image: url('../../../assets/right-arrow.svg');
+    transform: scaleX(-1);
+    background-color: white;
+    opacity: 0.7;
+}
+
+.right-button {
+    background-image: url('../../../assets/right-arrow.svg');
+    background-color: white;
+    opacity: 0.7;
 }
