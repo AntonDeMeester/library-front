@@ -23,29 +23,29 @@ export class BookListPageComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        console.log("Attempting to get query params")
+        console.log('Attempting to get query params');
         this.route
             .queryParams
             .subscribe(params => {
-                this.genre = params['genre'] || '';
-                console.log("Got query params: " + this.genre)
+                this.genre = params.genre || '';
+                console.log('Got query params: ' + this.genre);
                 this.bookService.getBooks(this.genre).subscribe(
-                    books => {this.books = books}
-                )
-            })
-        
+                    books => {this.books = books; }
+                );
+            });
+
     }
 
     scrollLeft(event) {
         this.bookScroll.nativeElement.scrollTo(
           { left: (this.bookScroll.nativeElement.scrollLeft - 300), behavior: 'smooth'}
-        )
+        );
       }
-    
+
       scrollRight(event) {
         this.bookScroll.nativeElement.scrollTo(
           { left: (this.bookScroll.nativeElement.scrollLeft + 300), behavior: 'smooth'}
-        )
+        );
       }
 
 }

@@ -14,11 +14,11 @@ import { environment } from '../../environments/environment';
 })
 export class BooksService {
 
-  private baseUrl = environment.backendUrl
-  private tokenEndPoint = this.baseUrl + "/token/"
-  private booksEndPoint = this.baseUrl + "/books/"
-  private registerEndPoint = this.baseUrl + "/register/"
-  private genreEndPoint = this.baseUrl + "/genres/"
+  private baseUrl = environment.backendUrl;
+  private tokenEndPoint = this.baseUrl + '/token/';
+  private booksEndPoint = this.baseUrl + '/books/';
+  private registerEndPoint = this.baseUrl + '/register/';
+  private genreEndPoint = this.baseUrl + '/genres/';
 
   private csrfToken: string;
 
@@ -30,15 +30,14 @@ export class BooksService {
   ) {
     this.token$ = new Subject<string>();
     this.token$.subscribe(token => this.setToken(token));
-    //this.login('anton', 'creafien')
   }
 
-  login(email:string, password:string) {
-    return this.http.post<any>(this.tokenEndPoint, {'username': email, 'password': password})
+  login(email: string, password: string) {
+    return this.http.post<any>(this.tokenEndPoint, {username: email, password})
       .subscribe(response => {
-        console.log('Token is ' + response.token)
+        console.log('Token is ' + response.token);
         this.token$.next(response.token);
-        this.setToken(response.token)
+        this.setToken(response.token);
       });
   }
 
@@ -46,37 +45,37 @@ export class BooksService {
     localStorage.setItem('token', token);
   }
 
-    getBooks(genreFilter): Observable<Book[]> {
-        console.log("Getting books: genre filter is: " + genreFilter);
-        let params = new HttpParams()
-        if(genreFilter){
-            console.log("Setting genre filter");
-            params = params.append("genre", genreFilter)
-        }
-        return this.http.get<Book[]>(this.booksEndPoint, { params: params })
-        .pipe(
-            tap(books => {
-            console.log(books);
-            }),
-        )
-    }
+  getBooks(genreFilter): Observable<Book[]> {
+      console.log('Getting books: genre filter is: ' + genreFilter);
+      let params = new HttpParams();
+      if (genreFilter) {
+          console.log('Setting genre filter');
+          params = params.append('genre', genreFilter);
+      }
+      return this.http.get<Book[]>(this.booksEndPoint, { params })
+      .pipe(
+          tap(books => {
+          console.log(books);
+          }),
+      );
+  }
 
   getBookById(id): Observable<Book> {
     return this.http.get<Book>(this.booksEndPoint + id)
     .pipe(
       tap(book => {
-        console.log(book)
-      })      
+        console.log(book);
+      })
     );
   }
-  
+
   registerBook(file: File): Observable<void> {
-    let data: FormData = new FormData();
-    data.append('image', file, 'fileName')
-    return this.http.post<void>(this.registerEndPoint, data)
+    const data: FormData = new FormData();
+    data.append('image', file, 'fileName');
+    return this.http.post<void>(this.registerEndPoint, data);
   }
 
   getGenres(): Observable<Genre[]> {
-    return this.http.get<Genre[]>(this.genreEndPoint)
+    return this.http.get<Genre[]>(this.genreEndPoint);
   }
 }

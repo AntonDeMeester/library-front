@@ -1,12 +1,12 @@
 <div class="loginForm">
-    <div class="box">
+    <form [formGroup]='formLogin' (ngSubmit)='onSubmit()' class="box">
         <h1 class="welcomeText">Welcome to your library</h1>
         <mat-form-field class="inputField">
-            <input matInput type="text" name="username" placeholder="Username">
+            <input matInput type="text" formControlName="username" placeholder="Username">
         </mat-form-field>
         <mat-form-field class="inputField">
-            <input matInput type="password" name="password" placeholder="Password">
+            <input matInput type="password" formControlName="password" placeholder="Password">
         </mat-form-field>
-        <button mat-button class="inputField loginButton">Log in</button>
-    </div>
+        <button mat-button type='submit' class="inputField loginButton">Log in</button>
+    </form>
 </div>

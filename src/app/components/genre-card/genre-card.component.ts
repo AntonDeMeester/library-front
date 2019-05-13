@@ -19,12 +19,12 @@ export class GenreCardComponent implements OnInit {
 
   goToGenre(event) {
     this.router.navigate(
-        ['/books/'], 
+        ['/books/'],
         { queryParams: {
             genre: this.genre.genre
             }
         }
-    )
+    );
   }
 
 }

@@ -18,7 +18,7 @@ export class DetailsPageComponent implements OnInit {
   }
 
   getBook(): void {
-    this.booksService.getBookById(1).subscribe(book => this.book = book)
+    this.booksService.getBookById(1).subscribe(book => this.book = book);
   }
 
 }

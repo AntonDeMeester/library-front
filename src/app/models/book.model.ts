@@ -1,9 +1,9 @@
-import { Author } from './author.model'
-import { Genre } from './genre.model'
+import { Author } from './author.model';
+import { Genre } from './genre.model';
 
 export class Book {
-    id: number; 
-    
+    id: number;
+
     isbn10: string;
     isbn13: string;
     title: string;

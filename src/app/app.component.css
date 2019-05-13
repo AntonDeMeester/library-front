@@ -15,8 +15,6 @@
 
 .mainContainer {
     flex-grow: 1;
-    display: flex;
-    justify-content: center;
 
     background-image: url(../assets/library-alt.jpg);
     background-size: cover;

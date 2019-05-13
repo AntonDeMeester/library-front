@@ -25,20 +25,20 @@ export class GenreListPageComponent implements OnInit {
 
   getGenres() {
     this.bookService.getGenres().subscribe(
-      genres => {this.genres = genres}
-    )
+      genres => {this.genres = genres; }
+    );
   }
 
   scrollLeft(event) {
     this.genreScroll.nativeElement.scrollTo(
       { left: (this.genreScroll.nativeElement.scrollLeft - 300), behavior: 'smooth'}
-    )
+    );
   }
 
   scrollRight(event) {
     this.genreScroll.nativeElement.scrollTo(
       { left: (this.genreScroll.nativeElement.scrollLeft + 300), behavior: 'smooth'}
-    )
+    );
   }
 
 }
