@@ -6,14 +6,39 @@ import { DetailsPageComponent } from './pages/details-page/details-page.componen
 import { GenreListPageComponent } from './pages/genre-list-page/genre-list-page.component';
 import { BookListPageComponent } from './pages/book-list-page/book-list-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/search', pathMatch: 'full'},
-  { path: 'search', component: SearchPageComponent },
-  { path: 'book', component: DetailsPageComponent },
-  { path: 'genres', component: GenreListPageComponent },
-  { path: 'books', component: BookListPageComponent },
-  { path: 'login', component: LoginPageComponent }
+  { 
+    path: '', 
+    redirectTo: '/search', 
+    pathMatch: 'full',
+    canActivate: [AuthGuardService],
+  },
+  { 
+    path: 'search', 
+    component: SearchPageComponent,
+    canActivate: [AuthGuardService],
+  },
+  { 
+    path: 'book', 
+    component: DetailsPageComponent,
+    canActivate: [AuthGuardService],
+  },
+  { 
+    path: 'genres', 
+    component: GenreListPageComponent,
+    canActivate: [AuthGuardService],
+  },
+  { 
+    path: 'books', 
+    component: BookListPageComponent,
+    canActivate: [AuthGuardService],
+  },
+  { 
+    path: 'login',
+    component: LoginPageComponent
+  },
 ];
 
 @NgModule({
