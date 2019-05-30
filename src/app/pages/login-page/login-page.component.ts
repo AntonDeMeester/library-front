@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { BooksService } from 'src/app/services/books.service';
+import { catchError } from 'rxjs/operators';
+import { HttpErrorResponse } from '@angular/common/http';
+import { throwError } from 'rxjs';
+import { SnackbarService } from 'src/app/services/snackbar.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -10,7 +15,9 @@ import { BooksService } from 'src/app/services/books.service';
 export class LoginPageComponent implements OnInit {
 
   constructor(private bookService: BooksService,
-              private formBuilder: FormBuilder) {
+              private formBuilder: FormBuilder,
+              private snackbarService: SnackbarService,
+              private router: Router) {
   }
 
   username = new FormControl('', Validators.required);
@@ -29,7 +36,9 @@ export class LoginPageComponent implements OnInit {
     console.log(this.formLogin);
     const username = this.formLogin.value.username;
     const password = this.formLogin.value.password;
-    this.bookService.login(username, password);
+    this.bookService.login(username, password).subscribe(result => {
+      this.router.navigate(['genres']);
+    });
   }
 
 }

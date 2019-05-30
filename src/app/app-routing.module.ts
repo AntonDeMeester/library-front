@@ -9,33 +9,33 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
-  { 
-    path: '', 
-    redirectTo: '/search', 
+  {
+    path: '',
+    redirectTo: '/search',
     pathMatch: 'full',
     canActivate: [AuthGuardService],
   },
-  { 
-    path: 'search', 
+  {
+    path: 'search',
     component: SearchPageComponent,
     canActivate: [AuthGuardService],
   },
-  { 
-    path: 'book', 
+  {
+    path: 'book',
     component: DetailsPageComponent,
     canActivate: [AuthGuardService],
   },
-  { 
-    path: 'genres', 
+  {
+    path: 'genres',
     component: GenreListPageComponent,
     canActivate: [AuthGuardService],
   },
-  { 
-    path: 'books', 
+  {
+    path: 'books',
     component: BookListPageComponent,
     canActivate: [AuthGuardService],
   },
-  { 
+  {
     path: 'login',
     component: LoginPageComponent
   },

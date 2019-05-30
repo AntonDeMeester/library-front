@@ -1,19 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule, HttpClientXsrfModule, HTTP_INTERCEPTORS,  } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS,  } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CookieService } from 'ngx-cookie-service';
 
 // Angular
-import { MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule } from '@angular/material';
+import { MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatSnackBarModule, MatToolbarModule } from '@angular/material';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Services
 import { AuthenticationInterceptor } from './services/authentication.service';
-import { Xsrfinterceptor } from './services/xsrfinterceptor.service';
-
 // Own components
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +23,8 @@ import { GenreCardComponent } from './components/genre-card/genre-card.component
 import { BookCardComponent } from './components/book-card/book-card.component';
 import { BookListPageComponent } from './pages/book-list-page/book-list-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { ErrorInterceptor } from './services/error.interceptor';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,8 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
     GenreCardComponent,
     BookCardComponent,
     BookListPageComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +48,8 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
     MatSortModule,
     MatCardModule,
     MatButtonModule,
+    MatSnackBarModule,
+    MatToolbarModule,
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
@@ -54,8 +57,8 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
   ],
   providers: [
     CookieService,
-    { provide: HTTP_INTERCEPTORS, useClass: Xsrfinterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

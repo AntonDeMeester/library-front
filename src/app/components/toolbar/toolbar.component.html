@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+  <div>Library</div>
+  <div class="spacer"></div>
+  <a routerLink="/genres">
+    <button mat-button *ngIf="isLoggedIn()">Genres</button>
+  </a>
+  <a routerLink="/books">
+    <button mat-button *ngIf="isLoggedIn()">Books</button>
+  </a>
+  <button mat-button (click)="selectFile($event)" *ngIf="isLoggedIn()">Upload</button>
+  <input id="inputFile" type="file" accept="image/*" (change)="uploadFile($event)" style="display:none"/>
+  <button mat-button (click)="logout($event)" *ngIf="isLoggedIn()">Log out</button>
+  <button mat-button (click)="login($event)" *ngIf="!isLoggedIn()">Log in</button>
+</mat-toolbar>
