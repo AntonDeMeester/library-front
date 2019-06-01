@@ -4,7 +4,7 @@ export class Author {
 
     constructor(data){
         if(data){
-            this.id = data.id || 0:
+            this.id = data.id || 0;
             this.name = data.name || '';
         }
     }
