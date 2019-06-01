@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { MatFormField, MatInput, MatSort, MatTableDataSource } from '@angular/material';
+import { MatFormField } from '@angular/material/form-field';
+import { MatInput } from '@angular/material/input';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 
 import { Book } from '../../models/book.model';
 import { BooksService } from 'src/app/services/books.service';
@@ -17,7 +20,7 @@ export class SearchPageComponent implements OnInit {
   displayedColumns: string[] = ['title', 'authors', 'genres'];
 
 
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatSort, {static: false}) sort: MatSort;
 
   constructor(private router: Router,
               private booksService: BooksService) {

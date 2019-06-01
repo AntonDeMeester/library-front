@@ -11,7 +11,7 @@ import { Genre } from '../../models/genre.model';
 })
 export class GenreListPageComponent implements OnInit {
 
-  @ViewChild('genreScrollContainer', { read: ElementRef }) public genreScroll: ElementRef<any>;
+  @ViewChild('genreScrollContainer', { read: ElementRef, static: false }) public genreScroll: ElementRef<any>;
 
   public genres: Genre[];
 

@@ -5,10 +5,28 @@
     border-style: solid;
     border-color: black;
     margin: 16px; 
+    padding: 32px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+}
+
+.titleContainer {
+    flex-grow: 0;
+}
+
+.detailsContainer {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.showDetailsContainer {
+    justify-self: end;
+    width: 100%;
 }
 
 .mat-card-lg-image {

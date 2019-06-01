@@ -12,7 +12,7 @@ import { Book } from '../../models/book.model';
 
 export class BookListPageComponent implements OnInit {
 
-    @ViewChild('bookScrollContainer', { read: ElementRef }) public bookScroll: ElementRef<any>;
+    @ViewChild('bookScrollContainer', { read: ElementRef, static: false }) public bookScroll: ElementRef<any>;
 
     public books: Book[];
     private genre: string;
@@ -30,7 +30,9 @@ export class BookListPageComponent implements OnInit {
                 this.genre = params.genre || '';
                 console.log('Got query params: ' + this.genre);
                 this.bookService.getBooks(this.genre).subscribe(
-                    books => {this.books = books; }
+                    books => {
+                      this.books = books; 
+                    }
                 );
             });
 

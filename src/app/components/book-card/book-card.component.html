@@ -1,5 +1,15 @@
-<mat-card class='bookCard'>
-  <mat-card-title>{{book.title}}</mat-card-title>
-  <mat-card-subtitle>{{book.subtitle}}</mat-card-subtitle>
-  <img mat-card-lg-image [src]='book.book_image' />
+<mat-card class='bookCard' (click)="toggleDetails($event)">
+  <div class='titleContainer'>
+    <mat-card-title>{{book.title}}</mat-card-title>
+    <mat-card-subtitle>{{book.subtitle}}</mat-card-subtitle>
+  </div>
+  <div class='detailsContainer'>
+    <img mat-card-lg-image [src]='imageUrl' *ngIf="!showDetails" />
+    <mat-card-content class="showDetailsContainer" *ngIf="showDetails">
+      <div *ngIf="book.publisher">Publisher: {{book.publisher}}</div>
+      <div *ngIf="book.published_date">Published on: {{book.published_date}}</div>
+      <div *ngIf="book.page_count">Pages: {{book.page_count}}</div>
+      <div *ngIf="book.language">Language: {{book.language}}</div>
+    </mat-card-content>
+  </div>
 </mat-card>

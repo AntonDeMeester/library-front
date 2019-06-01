@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpInterceptor } from '@angular/common/http/src/interceptor';
+import { HttpInterceptor } from '@angular/common/http';
 import { HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse } from '@angular/common/http';
-import { Observable, EMPTY, throwError } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { SnackbarService } from './snackbar.service';
 

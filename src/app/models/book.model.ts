@@ -1,5 +1,25 @@
 import { Author } from './author.model';
 import { Genre } from './genre.model';
+import { Url } from 'url';
+
+export class BookImage {
+    extra_large: Url;
+    large: Url;
+    medium: Url;
+    small: Url;
+    thumbnail: Url;
+    small_thumbnail: Url;
+
+    constructor(data?) {
+        if (!(data === undefined || data === null)) {
+            this.extra_large = data.extra_large || null;
+            this.large = data.large || null;
+            this.medium = data.medium || null;
+            this.thumbnail = data.thumbnail || null;
+            this.small_thumbnail = data.small_thumbnail || null;
+        }
+    }
+}
 
 export class Book {
     id: number;
@@ -18,7 +38,9 @@ export class Book {
     page_count: number;
     language: string;
 
-    book_image: URL;
+    imageUrl: string;
+
+    book_image: BookImage;
 
     constructor(data?){
         if (!(data === undefined || data === null)) {
@@ -44,19 +66,23 @@ export class Book {
             this.language = data.language || '';
 
             if(data.book_image) {
-                this.book_image = this.getImageFromList(data.book_image)
-            } else this.book_image = null;
+                this.book_image = new BookImage(data.book_image);
+                this.imageUrl = this.getImageFromList(data.book_image);
+            } else {
+                this.book_image = null;
+                this.imageUrl = null;
+            }
           }
       
     }
 
-    getImageFromList(bookImage) {
-        if(bookImage.extra_large) return bookImage.extra_large;
-        if(bookImage.large) return bookImage.large;
-        if(bookImage.medium) return bookImage.medium;
-        if(bookImage.small) return bookImage.small;
-        if(bookImage.thumbnail) return bookImage.thumbnail;
-        if(bookImage.small_thumbnail) return bookImage.small_thumbnail;
+    public getImageFromList(bookImage: BookImage): string {
+        if(bookImage.extra_large) return bookImage.extra_large.toString();
+        if(bookImage.large) return bookImage.large.toString();
+        if(bookImage.medium) return bookImage.medium.toString();
+        if(bookImage.small) return bookImage.small.toString();
+        if(bookImage.thumbnail) return bookImage.thumbnail.toString();
+        if(bookImage.small_thumbnail) return bookImage.small_thumbnail.toString();
         return '';
     }
 }

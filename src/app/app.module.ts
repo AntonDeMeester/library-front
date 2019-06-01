@@ -5,7 +5,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CookieService } from 'ngx-cookie-service';
 
 // Angular
-import { MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatSnackBarModule, MatToolbarModule } from '@angular/material';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
