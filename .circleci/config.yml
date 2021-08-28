@@ -56,10 +56,6 @@ jobs:
       - run:
           name: Show current branch
           command: echo ${CIRCLE_BRANCH}
-          environment:
-            AWS_ACCESS_KEY: ${AWS_ACCESS_KEY}
-            AWS_ACCOUNT: ${AWS_ACCOUNT}
-            AWS_SECRET_KEY: ${AWS_SECRET_KEY}
       # Restore cache from the build job which contains the
       # dist folder that needs to be deployed
       - restore_cache:
