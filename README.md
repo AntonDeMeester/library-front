@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
 
+It provides the front end for [the Library project](library.illuminatus.be).
+
+You can provide ISBNs or picture of the barcodes, and it will get added to your book list.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
